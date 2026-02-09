@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\js">
+      <UniqueIdentifier>{e01fd3bd-2b8b-4a52-a9cf-93bc1ba0640d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\js">
+      <UniqueIdentifier>{d6955e7a-d5f1-4a37-99e3-c5e10f4f8b5c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="module_loader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="js_global.cpp">
+      <Filter>源文件\js</Filter>
+    </ClCompile>
+    <ClCompile Include="bug.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="console.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="js_state.cpp">
+      <Filter>源文件\js</Filter>
+    </ClCompile>
+    <ClCompile Include="js_engine.cpp">
+      <Filter>源文件\js</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bug.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="console.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="module_loader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="js_global.h">
+      <Filter>头文件\js</Filter>
+    </ClInclude>
+    <ClInclude Include="js_state.h">
+      <Filter>头文件\js</Filter>
+    </ClInclude>
+    <ClInclude Include="test_class.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="js_types.h">
+      <Filter>头文件\js</Filter>
+    </ClInclude>
+    <ClInclude Include="js_engine.h">
+      <Filter>头文件\js</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
