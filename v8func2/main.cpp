@@ -64,7 +64,6 @@ int main()
 	V8::Initialize();
 
 	JsEngine::GetInstance().LoadScript("main.js");
-	JsEngine::GetInstance().LoadScript("main1.js");
 
 	HANDLE hHotKeyThread = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)HotkeyThread, NULL, 0, NULL);
 

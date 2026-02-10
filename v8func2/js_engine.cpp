@@ -18,11 +18,14 @@ void JsEngine::UnloadScript(std::string name) {
 
 void JsEngine::LoadScript(std::string name) {
 	UnloadScript(name);
-	v8::HandleScope scope(scripts_[name].isolate);
-	if (name == "main.js")
+	bool ok = false;
+	{
+		v8::HandleScope scope(scripts_[name].isolate);
 		RegisterGlobalFunctions(scripts_[name].state.get());//注册自定义全局函数
-	if (scripts_[name].loader->LoadDomain(name) == false) {
-		UnloadScript(name);
+		ok = scripts_[name].loader->LoadDomain(name);
+	}
+	if (!ok) {
+		UnloadScript(name); // 现在安全了
 	}
 }
 
