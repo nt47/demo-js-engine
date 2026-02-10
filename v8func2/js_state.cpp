@@ -8,7 +8,7 @@ void JsState::Create() {
 	isolate->SetPromiseRejectCallback(Bug::PromiseRejectCallback);
 	isolate->AddMessageListener(Bug::MessageCallback);
 
-	//设置动态 import 回调
+	// 设置动态 import 回调
 	isolate->SetHostImportModuleDynamicallyCallback(
 		ModuleLoader::ImportModuleDynamicallyCallback);
 
