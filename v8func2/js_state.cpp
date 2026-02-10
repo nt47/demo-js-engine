@@ -7,7 +7,7 @@ void JsState::Create() {
 	v8::HandleScope scope(isolate);
 	isolate->SetPromiseRejectCallback(Bug::PromiseRejectCallback);
 	isolate->AddMessageListener(Bug::MessageCallback);
-	// ÉèÖÃ¶¯Ì¬ import »Øµ÷
+	// è®¾ç½®åŠ¨æ€ import å›žè°ƒ
 	isolate->SetHostImportModuleDynamicallyCallback(
 		ModuleLoader::ImportModuleDynamicallyCallback);
 
