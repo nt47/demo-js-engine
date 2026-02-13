@@ -11,6 +11,7 @@ public:
 	static void Info(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static void Error(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static void Success(const v8::FunctionCallbackInfo<v8::Value>& args);
+	static void Debug(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static void Register();
 };
 

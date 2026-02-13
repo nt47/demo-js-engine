@@ -1,5 +1,22 @@
 #include"console.h"
 #include<iostream>
+
+void Print(const v8::FunctionCallbackInfo<v8::Value>& args, fmt::color color) {
+	v8::Isolate* isolate = args.GetIsolate();
+	v8::HandleScope handle_scope(isolate);
+
+	for (int i = 0; i < args.Length(); i++) {
+		v8::String::Utf8Value str(isolate, args[i]);
+		if (*str) {
+			fmt::print(fg(color), "{}", *str);
+		}
+		if (i + 1 < args.Length()) {
+			printf(" ");
+		}
+	}
+	printf("\n");
+}
+
 void Console::Log(const v8::FunctionCallbackInfo<v8::Value>& args) {
 	v8::Isolate* isolate = args.GetIsolate();
 	v8::HandleScope handle_scope(isolate);
@@ -17,67 +34,23 @@ void Console::Log(const v8::FunctionCallbackInfo<v8::Value>& args) {
 }
 
 void Console::Warn(const v8::FunctionCallbackInfo<v8::Value>& args) {
-	v8::Isolate* isolate = args.GetIsolate();
-	v8::HandleScope handle_scope(isolate);
-
-	for (int i = 0; i < args.Length(); i++) {
-		v8::String::Utf8Value str(isolate, args[i]);
-		if (*str) {
-			fmt::print(fg(fmt::color::yellow), "{}", *str);
-		}
-		if (i + 1 < args.Length()) {
-			printf(" ");
-		}
-	}
-	printf("\n");
+	Print(args, fmt::color::yellow);
 }
 
 void Console::Info(const v8::FunctionCallbackInfo<v8::Value>& args) {
-	v8::Isolate* isolate = args.GetIsolate();
-	v8::HandleScope handle_scope(isolate);
-
-	for (int i = 0; i < args.Length(); i++) {
-		v8::String::Utf8Value str(isolate, args[i]);
-		if (*str) {
-			fmt::print(fg(fmt::color::aqua), "{}", *str);
-		}
-		if (i + 1 < args.Length()) {
-			printf(" ");
-		}
-	}
-	printf("\n");
+	Print(args, fmt::color::aqua);
 }
 
 void Console::Error(const v8::FunctionCallbackInfo<v8::Value>& args) {
-	v8::Isolate* isolate = args.GetIsolate();
-	v8::HandleScope handle_scope(isolate);
-
-	for (int i = 0; i < args.Length(); i++) {
-		v8::String::Utf8Value str(isolate, args[i]);
-		if (*str) {
-			fmt::print(fg(fmt::color::red), "{}", *str);
-		}
-		if (i + 1 < args.Length()) {
-			printf(" ");
-		}
-	}
-	printf("\n");
+	Print(args, fmt::color::red);
 }
 
 void Console::Success(const v8::FunctionCallbackInfo<v8::Value>& args) {
-	v8::Isolate* isolate = args.GetIsolate();
-	v8::HandleScope handle_scope(isolate);
+	Print(args, fmt::color::green);
+}
 
-	for (int i = 0; i < args.Length(); i++) {
-		v8::String::Utf8Value str(isolate, args[i]);
-		if (*str) {
-			fmt::print(fg(fmt::color::green), "{}", *str);
-		}
-		if (i + 1 < args.Length()) {
-			printf(" ");
-		}
-	}
-	printf("\n");
+void Console::Debug(const v8::FunctionCallbackInfo<v8::Value>& args) {
+	Print(args, fmt::color::pink);
 }
 
 void Console::Register() {
@@ -90,6 +63,7 @@ void Console::Register() {
 		.function("warn", &Console::Warn)
 		.function("info", &Console::Info)
 		.function("error", &Console::Error)
-		.function("success", &Console::Success);
+		.function("success", &Console::Success)
+		.function("debug", &Console::Debug);
 	isolate->GetCurrentContext()->Global()->Set(context, v8pp::to_v8(isolate, "console"), console.new_instance());
 }
