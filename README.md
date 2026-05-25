@@ -6,6 +6,8 @@ DSL part is based on v8pp project
 
 v8monolith.lib version is 14.3 made by github action
 
+now i am working on [Aqua](https://github.com/nt47/demo1-js-engine) which tested in C# CLR ❤️
+
 
 
 # 项目效果
